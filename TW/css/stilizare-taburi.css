@@ -1,0 +1,23 @@
+#r8 {
+    display: flex;
+    justify-content: center;
+}
+
+#tutorials {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+#tutorials iframe {
+    border: 2px solid var(--c_bg);
+}
+#tutorials div {
+    display: flex;
+}
+#tutorials a {
+    display: block;
+    border: 1px solid var(--c_bg);
+    color: var(--c_text);
+    text-decoration: none;
+}

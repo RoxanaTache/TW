@@ -1,0 +1,52 @@
+#banner {
+    /* inseamna ca bara e "inghetata" in partea de jos a ecranului si ramane acolo si cand dai scroll */
+    position: fixed;
+    /* display e table-cell ca sa se faca vertical align */
+    display: table-cell;
+    bottom: 0;
+    opacity: 0;
+    vertical-align: middle;
+    /* width e vw ca sa se intinda pe tot ecranul pe orizontala si em e relativ la fontsize ptr height; */
+    width: 100vw;
+    height: 2em;
+    font-size: 20px;
+    animation: banner 5s linear;
+    border-top: 5px;
+    border-style: solid;
+    --c1: var(--c_highlight);
+    --c2: var(--c_nav);
+    --c3: var(--c_bg);
+}
+
+#banner > p {
+    width: fit-content;
+    margin: auto;
+}
+
+/* banner-ul sa se vada doar pe display mare */
+/* e display none ca sa nu se mai afiseze */
+@media only screen and (max-width: 1000px) { #banner { display: none; } }
+
+/* asa se face evolutia culorii in timpul derularii banner-ului pe etape */
+@keyframes banner {
+    0% {
+        background-color: var(--c1);
+        border-color: var(--c1);
+        opacity: 1;
+        right: 100vw;
+    }
+    33% {
+        background-color: var(--c2);
+        border-color: var(--c3);
+    }
+    66% {
+        background-color: var(--c3);
+        border-color: var(--c2);
+    }
+    100% {
+        background-color: var(--c2);
+        border-color: var(--c3);
+        opacity: 1;
+        right: 0;
+    }
+}

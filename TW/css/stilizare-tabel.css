@@ -1,0 +1,18 @@
+#r2 > table {
+    margin: auto;
+    border-spacing: 1px;
+}
+
+#r2 > table td, #r2 > table th {
+    border: 1px solid black;
+}
+
+#r2 tbody tr:nth-child(2n+1) {
+    background-color: var(--c_nav);
+}
+
+#r2 tbody tr:hover, #r2 tfoot tr:hover {
+    background-color: var(--c_highlight);
+}
+
+@media only screen and (max-width: 600px) { #r2 { overflow-x: scroll; } }

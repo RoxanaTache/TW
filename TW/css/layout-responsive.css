@@ -1,0 +1,41 @@
+* { margin: 0; }
+
+main {
+    /* tipul de display e grid */
+    display: grid; 
+    /* impartim grid-ul in 4 coloane */
+    grid-template-columns: 25% 25% 25% 25%;
+    background-color: var(--c_bg); /* maybe */
+}
+
+/* r1 merge de la 1 la 5-1, r8 are aceeasi dimensiune */
+#r1 { grid-column: 1 / 5; }
+#r8 { grid-column: 1 / 5; }
+
+/* r3 ocupa toata coloana 1 de aceea am scris doar 1 */
+#r3 { grid-column: 1; }
+#r2 { grid-column: 2 / 4; }
+#r4 { grid-column: 4; }
+#r5 { grid-column: 1; }
+#r6 { grid-column: 2; }
+#r7 { grid-column: 3 / 5; }
+
+/* dimensiunile layout-ului pentru dimensiunea medie a ecreanului (intre 1000px si 601px) */
+/* font-size este .9rem ca sa se micsoreze o data cu redimensionarea tab-ului */
+@media only screen and (max-width: 1000px) and (min-width: 601px) {
+    * { font-size: .9rem; }
+    main { grid-template-columns: 33.3% 33.3% 33.3%; }
+    #r1 { grid-column: 1 / 4; }
+    #r8 { grid-column: 1 / 4; }
+    #r3 { grid-column: 1; }
+    #r2 { grid-column: 2 / 4; }
+    #r4 { grid-column: 1; }
+    #r5 { grid-column: 2; }
+    #r6 { grid-column: 3; }
+    #r7 { grid-column: 1 / 4; }
+}
+/* pentru ecranele mici (dimensiune maxima 600px) o sa se afiseze o singura coloana (display: block => nu mai sunt valabile grid-template-column, toate au un rand) */
+@media only screen and (max-width: 600px) {
+    * { font-size: .8rem; }
+    main { display: block; }
+}

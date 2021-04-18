@@ -1,0 +1,87 @@
+header {
+    position: relative;
+    background-color: var(--c_nav); }
+        nav a {
+            display: block;
+            text-decoration: none;
+        }
+        nav > ul { padding: 0; }
+        header > svg { display: none; }
+        #homeButton span {
+            opacity: 0;
+            transition-property: opacity;
+            transition-duration: 1s;}
+        #homeButton > a > svg {
+            position: relative;
+            top: .1em;
+            height: 1em;
+            fill: var(--c_text);
+            transition-property: fill;
+            transition-duration: 1s;}
+            #homeButton:hover > a > svg { fill: var(--c_highlight); }
+            #homeButton:hover span { opacity: 1; }
+        nav a {
+            color: var(--c_text);
+            transition-property: color;
+            transition-duration: 1s;
+            padding: 25px 30px;}
+            nav a:hover { color: var(--c_highlight); }
+        nav li {
+            display: table-cell;
+            position: relative;
+            font-size: 20px;
+            vertical-align: middle;}
+            nav li > a {
+                padding-left: 45px;
+                padding-right: 45px;
+            }
+            nav li > div {   
+                transform: scale(0);
+                transform-origin: top center;
+                position: absolute;
+                min-width: 100%;
+                background-color: var(--c_nav);
+                text-align: center;
+                transition-property: transform;
+                transition-duration: .1s;}
+            nav li:hover > div {
+                transform: scale(1);
+                transition-property: transform;
+                transition-duration: 1s;}
+
+@media only screen and (max-width: 600px) {
+    nav {
+        background-image: linear-gradient(var(--c_nav) 0% 10%, rgba(0, 0, 0, 0) 90% 100%);
+        transition-property: bacbackground-image;
+        transition-duration: 1s;
+        position: absolute;
+        width: 100%;
+        display: none;
+        background-size: 1000% 1000%; }
+    #homeButton span {
+        display: none;
+    }
+    header > svg {
+        display: block;
+        fill: var(--c_text);
+        width: 40px;
+        padding: 10px;
+    }
+    svg:hover ~ nav {
+        display: block;
+        animation: bg .7s;
+    }
+    nav:hover {
+        display: block;
+        animation: bg .7s;
+    }
+    nav li {
+        display: block;
+        text-align: center; }
+    nav li > div { z-index: 1; }
+}
+
+@keyframes bg {
+    0% { background-position-y: 100%; }
+    100% { background-position-y: 0%; }
+}
